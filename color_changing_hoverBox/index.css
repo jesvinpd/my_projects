@@ -1,0 +1,27 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+
+#rect{
+    border : 2px solid red;
+    height: 500px;
+    width: 1000px;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: black;
+    text-transform: capitalize;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+#rect:hover{
+    font-size: 70px;
+    color: white;
+}
