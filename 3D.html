@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >3D Chess Board</title>
+    <link rel="icon" href="./images/chess-board-icon.png" type="image/x-icon">
+    <style>
+        body{
+            border: 0;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #app{
+            background-color: blueviolet;
+            color: white;
+            width: 100%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        h1{
+            text-align: center;
+            border-bottom: 2px solid white;
+            width: 80%;
+        }
+        #chess-board{
+            width:36% ;
+            height: 80%;
+            max-width: 800px;
+            display: grid;
+            grid-template-rows: repeat(8,1fr);
+            grid-template-columns: repeat(8,1fr);
+            background-color: aqua;
+            box-shadow: 10px 20px 0px rgba(21, 0, 0, 0.2);
+        }
+      
+        #chess-board div:hover{
+            transform: translateZ(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .brown{
+            background-color: brown;
+        }
+        .bisque{
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>A chess-board</h1>
+        <div id="chess-board">
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+            <div class=" bisque"></div>
+            <div class=" brown"></div>
+
+        </div>
+    </div>
+</body>
+</html>
