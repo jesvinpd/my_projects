@@ -8,47 +8,48 @@
     <style>
         body {
             border: 0;
-            padding: 0;
             margin: 0;
+            padding: 0;
             width: 100%;
-            height: 100vmin;
+            height: 100vh;
             box-sizing: border-box;
         }
 
         #app {
-            box-sizing: border-box;
-            background-color: bisque;
             width: 100%;
             height: 100%;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
         }
 
         h1 {
             width: 80%;
-            height: 40px;
-            padding-bottom: 10px;
+            max-width: 600px;
+            margin: 15px auto;
             text-align: center;
-            border-bottom: 2px solid purple;
+            border-bottom: 2px solid brown;
         }
 
-        #chess-board {
+        .chess-board {
+            background-color: rgb(239, 239, 11);
             width: 80%;
+            max-width: 80vmin;
             aspect-ratio: 1/1;
-            max-width: 80vh;
+            border: 2px solid black;
+            padding: 5px;
             display: flex;
-            align-self: center;
             flex-direction: column;
-            background-color: brown;
-            padding: 10px;
             box-sizing: border-box;
         }
 
         .row {
-            width: 100%;
             display: flex;
             flex-direction: row;
+            width: 100%;
             flex: 1;
         }
 
@@ -58,15 +59,32 @@
 
         .block {
             flex: 1;
-
+            aspect-ratio: 1/1;
         }
 
         .red {
             background-color: red;
         }
 
-        .yellow {
-            background-color: yellow;
+        .black {
+            background-color: black;
+        }
+
+        @media(max-width:480px) {
+            #app {
+                padding: 5px;
+            }
+
+            .chess-board {
+                padding: 3px;
+                width: 85%;
+            }
+
+            h1 {
+                width: 85%;
+                margin: 10px auto;
+            }
+
         }
     </style>
 </head>
@@ -74,86 +92,86 @@
 <body>
     <div id="app">
         <h1>A Red and Yellow Chess Board</h1>
-        <div id="chess-board">
+        <div class="chess-board">
             <div class="row">
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
             </div>
             <div class="row reverse">
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
             </div>
             <div class="row">
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
             </div>
             <div class="row reverse">
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
             </div>
             <div class="row">
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
             </div>
             <div class="row reverse">
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
             </div>
             <div class="row">
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
             </div>
             <div class="row reverse">
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
                 <div class="block red"></div>
-                <div class="block yellow"></div>
+                <div class="block black"></div>
             </div>
         </div>
     </div>
