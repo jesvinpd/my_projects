@@ -51,13 +51,23 @@
             .btn:hover{
                     background-color: rgb(249, 6, 6);
                 }
+            .hide{display: none;}
+            .alert{
+                z-index: 1050;
+                top: 0px;
+                position: fixed;
+            }
         </style>
     </head>
 
 <body class="container-xl bg-info-subtle ">
+    <div class="alert alert-warning alert-dismissible fade hide" role="alert">
+        <strong>Holy guacamole!</strong> You should write something below to read.
+        <button  onclick="closeAlert()" class="btn-close" aria-label="Close"></button>
+    </div>
     <h1>Text to Speech <span>Converter</span></h1>
     <textarea placeholder="Paste your text here..."></textarea>
-    <div class="actions">
+    <div class="actions container-xl">
         <select id="voice_selector"></select>
         <button onclick="play()" class="btn btn-xl btn-danger">Convert and Play</button>
     </div>
@@ -87,10 +97,33 @@
             }
             
             textAreaElement.addEventListener('input', (e) => {
+              if(e.target.value.trim()){
                 speech.text = e.target.value;
+              }else{
+                e.target.value='';
+              }
             })
+
+            let alertElement=document.querySelector('.alert');
+
             function play() {
-                window.speechSynthesis.speak(speech)
+               if(speech.text) {
+                 window.speechSynthesis.speak(speech);
+                 speech.text='';
+                }else{
+                    alertElement.classList.remove('hide');
+                    alertElement.classList.add('show');
+                    
+                // call the function after 5 seconds
+                setTimeout(()=>{
+                    closeAlert();
+                },3000);
+               }
+                } 
+            
+            function closeAlert(){
+                alertElement.classList.remove('show');
+                alertElement.classList.add('hide');
             }
     </script>
 </body>
