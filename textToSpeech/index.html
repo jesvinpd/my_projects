@@ -59,12 +59,40 @@
     <textarea placeholder="Paste your text here..."></textarea>
     <div class="actions">
         <select id="voice_selector"></select>
-        <button class="btn btn-xl btn-danger">Convert and Play</button>
+        <button onclick="play()" class="btn btn-xl btn-danger">Convert and Play</button>
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+    <script>
+            let textAreaElement = document.querySelector('textarea');
+            let voiceSelectorElement = document.getElementById('voice_selector');
+            let speech = new SpeechSynthesisUtterance();
+
+            window.speechSynthesis.onvoiceschanged=()=>{
+                let voices=window.speechSynthesis.getVoices();
+                voices.forEach((voice,i)=>{
+                    let optionElement = document.createElement('option');
+                    voiceSelectorElement.appendChild(optionElement);
+                    optionElement.innerHTML = voice.name;
+                    optionElement.value = i;
+                    //voiceSelectorElement.options[i]=new Option(voice.name,i); this one line can be used instead of 4 lines
+                })
+                voiceSelectorElement.addEventListener('input',(e)=>{
+                        speech.voice=voices[e.target.value];//or voiceSelectorElement.value
+                })
+            }
+            
+            textAreaElement.addEventListener('input', (e) => {
+                speech.text = e.target.value;
+            })
+            function play() {
+                window.speechSynthesis.speak(speech)
+            }
+    </script>
 </body>
 
 </html>
