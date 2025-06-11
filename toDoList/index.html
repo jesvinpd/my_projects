@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List App</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+        }
+        #app{
+          background-color: rgb(11, 183, 114);
+          width: 100%;
+          height: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-sizing: border-box;
+        }
+        h1{
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+        }
+        #input-section{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px;
+        }
+        input{
+            flex: 1 1;
+            max-width: 80%;
+            min-width: 355px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 0;
+        }
+        #add-btn{
+            border-radius: 5px;
+            border: 0;
+            width: 10%;
+            min-width: 70px;
+            font-size: 20px;
+            font-weight: 600;
+            box-shadow: 0px 9px 23px;
+        }
+        #list{
+            background-color: rgb(26, 74, 116);
+            width: 87%;
+            max-width: 90%;
+            height: 50%;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .item{
+            background-color: white;
+            color: black;
+            font-size: 20px;
+            font-weight: 600;
+            width: 90%;
+            height: 15%;
+            border-radius: 6px;
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+        }
+        .delete-btn{
+            background-color: red;
+            color: rgb(231, 223, 223);
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .done-btn{
+            background-color: rgb(20, 60, 22);
+            color: rgb(231, 223, 223);
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .done{
+            background-color: greenyellow;
+        }
+        
+        .strike-off{
+            text-decoration: line-through;
+        }
+        @media(max-width:604px){
+            #input-section{
+                flex-direction: column;
+                align-items: center;
+            }
+            input{
+                padding: 7px;
+                min-width: 290px;
+                max-width: 90%;
+                width: 90%;
+            }
+        }
+        @media(min-width:1024px){
+            input{
+                padding: 10px;
+                font-size: large;
+            }
+            h1{
+                font-size: 40px;
+                font-weight: bolder;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>To Do List</h1>
+        <div id="input-section">
+            <input id="input" placeholder="write your task here.." type="text">
+            <button id="add-btn">Add</button>
+        </div>
+        <div id="list">
+            <!--Things to do-->
+        </div>
+    </div>
+    <script>
+        let listElement=document.getElementById('list');
+        let inputElement=document.getElementById('input');
+        let input_value="";
+        let tasks=[];
+
+        inputElement.addEventListener('input',(e) => {
+                console.log(e.target.value);
+                input_value = e.target.value;
+            })
+        document.getElementById('add-btn').addEventListener('click',()=>{
+            if(input_value.trim()){ 
+            let itemElement = createItemElement(input_value);
+            tasks.push(input_value)
+            console.log(tasks)
+            listElement.appendChild(itemElement);
+            }
+            inputElement.value = "";
+        })
+
+
+        function createItemElement(string){
+            let itemElement = document.createElement('div');
+            itemElement.classList.add('item');
+
+            let textElement = document.createElement('span')
+            textElement.innerHTML = string;
+
+            let deleteBtn=document.createElement('button');
+            deleteBtn.classList.add('delete-btn');
+            deleteBtn.innerHTML='Delete'
+            deleteBtn.addEventListener('click', () => {
+                tasks=tasks.filter((e)=> e!== textElement.innerHTML);
+                console.log("after deletion: ",tasks)
+                itemElement.remove();
+            })
+
+            let doneBtn = document.createElement('button');
+            doneBtn.classList.add('done-btn');
+            doneBtn.innerHTML='Done'
+            doneBtn.addEventListener('click',()=>{
+                itemElement.classList.add('done');
+                textElement.classList.add('strike-off');
+                doneBtn.style.visibility='hidden';
+            })
+
+            itemElement.appendChild(doneBtn)
+            itemElement.appendChild(textElement)
+            itemElement.appendChild(deleteBtn)
+    
+            return itemElement;
+        }
+    </script>
+</body>
+</html>
