@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(73, 73, 220);
+        }
+        .gallery-wrap{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10% auto;
+        }
+        button{
+            width: 50px;
+            margin: 40px;
+            cursor: pointer;
+        }
+        #gallery{
+            width: 900px;
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+        #gallery div{
+            width: 100%;
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(3,auto);
+            padding: 10px;
+            flex: none;
+            background-color: aliceblue;
+        }
+        #gallery::-webkit-scrollbar{
+            display:none ;
+        }
+        img{
+            background-color: rgb(255, 89, 0);
+            width: 100%;
+            transition: transform .3s ease-out;
+            filter: grayscale(100%);
+        }
+        img:hover{
+            filter: grayscale(0%);
+            cursor: pointer;
+            transform: translateZ(20px) scale(1.1);
+        }
+    </style>
+</head>
+<body>
+   <div class="gallery-wrap">
+    <button>Left</button>
+    <div id="gallery">
+        <div>
+            <img src="./images/image1.png" alt="">
+            <img src="./images/image2.png" alt="">
+            <img src="./images/image3.png" alt="">
+        </div>
+        <div>
+            <img src="./images/image4.png" alt="">
+            <img src="./images/image1.png" alt="">
+            <img src="./images/image2.png" alt="">
+        </div>
+    </div>
+    <button>Right</button>
+   </div>
+    <script>
+       let scrollContainer=document.getElementById('gallery')
+       let rightBtn=document.querySelectorAll('button')[1]
+       let leftBtn=document.querySelectorAll('button')[0]
+
+       rightBtn.addEventListener('click',()=>{
+          scrollContainer.scrollLeft+=900;
+       })
+       leftBtn.addEventListener("click",()=>{
+          scrollContainer.scrollLeft-=900;
+       })
+
+    </script>
+</body>
+</html>
