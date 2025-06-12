@@ -109,7 +109,7 @@
             function play() {
                if(speech.text) {
                  window.speechSynthesis.speak(speech);
-                 speech.text='';
+                 if (!textAreaElement.value) speech.text = '';
                 }else{
                     alertElement.classList.remove('hide');
                     alertElement.classList.add('show');
