@@ -1,0 +1,11 @@
+{
+  "name": "main-workspace",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "pnpm --filter ./Project1/frontend run dev",
+    "dev:backend": "pnpm --filter ./Project1/backend run dev",
+    "build:all": "pnpm -r run build",
+    "clean:all": "pnpm -r run clean",
+    "cleanUp": "sh cleanUp.sh"
+  }
+}

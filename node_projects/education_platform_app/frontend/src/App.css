@@ -1,0 +1,85 @@
+.App {
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.language-select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.theme-toggle, .submit-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.theme-toggle {
+  background-color: #f0f0f0;
+}
+
+.submit-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.editor-container {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.output-panel {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  min-height: 150px;
+}
+
+.output-content {
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.output-content pre {
+  margin: 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+/* Dark theme adjustments */
+.vs-dark .output-panel {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.vs-dark .output-content pre {
+  background-color: #2d2d2d;
+  color: #fff;
+}
